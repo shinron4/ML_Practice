@@ -1,0 +1,31 @@
+SK Learn 
+
+sklearn.tree : classifier and regressor
+
+sklearn.model_selection
+	train_test_split
+
+	cross validation 
+		shuffle split : stratified or normal
+		kfold split : stratified and normal
+
+	grid search CV. n_jobs = -1 parallelise across different parameter combination
+	randomised search CV
+
+	cross_val_score
+
+	cross_val_predict : only works with kfold
+
+sklearn.ensemble
+
+	random forest : regressor and classifier. oob_score helps in getting the generalisation error.
+			  
+	bagging : classifier and regressor. n_hobs = -1
+
+
+sklearn.metrics
+	classification : classification_report, confusion matrix, f1_score
+
+	regression : mean_squared_error
+
+Sklear: NearestNeighbors : regressor and classification
