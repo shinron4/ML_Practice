@@ -29,3 +29,23 @@ sklearn.metrics
 	regression : mean_squared_error
 
 Sklear: NearestNeighbors : regressor and classification
+
+
+
+File imports at the top. Select from these what you want
+
+%config Completer.use_jedi = False
+
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+from sklearn import tree
+from sklearn import neighbors
+from sklearn import svm
+import sklearn.ensemble as ensemble
+
+import sklearn.datasets as dataset
+import sklearn.model_selection as model_sel
+
+from sklearn import metrics
