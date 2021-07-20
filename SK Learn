@@ -49,3 +49,54 @@ import sklearn.datasets as dataset
 import sklearn.model_selection as model_sel
 
 from sklearn import metrics
+
+
+Model tuning starter code
+
+#tuning function
+def tune_model(typ, estimator, tuner_param, train_x, train_y):
+    tuner = None;
+    if typ == 'grid':
+        tuner = model_sel.GridSearchCV(estimator,
+                                       param_grid= tuner_param['param_grid'], cv= tuner_param['cv'],
+                                       n_jobs= -1);
+    elif typ == 'random':
+        tuner = model_sel.RandomizedSearchCV(estimator,
+                                             tuner_param['param_grid'], cv= tuner_param['cv'],
+                                             n_jobs= -1, n_iter= tuner_param['iter']);
+    tuner.fit(train_x, train_y);
+    results = tuner.cv_results_;
+
+    return zip(results['params'], results['mean_test_score']), \
+           tuner.best_estimator_, tuner.best_params_, tuner.best_score_
+
+
+#define the estimator
+base_ =
+
+#define the tuning parameters like param_grid and cv
+tuner_params = { \
+    'param_grid' : { \
+    }, \
+    'cv' : 5, \
+};
+
+#param_score gives
+param_score, best_base_, best_params_, _ = tune_model('grid', base_,
+                                                      tuner_params,
+                                                      train_x, train_y);
+#Mean score for each parameter combination tried
+for param, score in param_score:
+    print(param, score);
+
+#parameters that gave best mean score
+print(best_params_);
+
+#Score on train set
+print(best_base_.score(train_x, train_y));
+
+#if Classification task
+'''
+pred_y = best_base_.predict(train_x);
+print(metrics.classification_report(train_y, pred_y));
+'''
