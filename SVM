@@ -1,0 +1,8 @@
+#define the tuning parameters like param_grid and cv
+tuner_params = { \
+    'param_grid' : { \
+        'kernel' : ['rbf', 'linear'], \
+        'C' : [1, 10, 100, 1000], \
+    }, \
+    'cv' : 5, \
+};
